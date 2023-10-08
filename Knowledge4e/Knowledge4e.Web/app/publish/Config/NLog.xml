@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      autoReload="true">
+
+	<!-- enable asp.net core layout renderers -->
+	<extensions>
+		<add assembly="NLog.Web.AspNetCore"/>
+	</extensions>
+	<variable name="app_id" value="AmisApi" />
+	<variable name="env" value="dev" />
+	
+	<!-- the targets to write to -->
+	<targets  async="true">
+
+		<!-- the targets to write to -->
+		<target xsi:type="WebService"
+			name="logstash"
+			url="http://192.168.11.163:8080"
+			encoding="utf-8"
+			protocol="JsonPost">
+			
+			<parameter name='env' type='System.String' layout='${env}'/>
+			<parameter name='app_id' type='System.String' layout='${app_id}'/>
+			<parameter name='level' type='System.String' layout='${level}'/>
+			<parameter name="logger" type='System.String' layout="${logger}" />
+			<parameter name='message' type='System.String' layout='${message}'/>
+			<parameter name='request-url' type='System.String' layout='${aspnet-Request-Url}'/>
+			<parameter name='request-method' type='System.String' layout='${aspnet-Request-Method}'/>
+			<parameter name='site-name' type='System.String' layout='${iis-site-name}'/>
+			<parameter name='sitename' type='System.String' layout='${replace:inner=${iis-site-name}:searchFor=MISA.AMIS.AMS.:replaceWith=}'/>
+			<parameter name='thread-id' type='System.String' layout='${threadid}'/>
+			<parameter name='machinename' type='System.String' layout='${machinename}'/>
+			<parameter name="exception" type="System.String" layout="${when:when=length('${exception}')>0:Inner=${exception}}${exception:format=tostring}" />
+		</target>
+	</targets>
+
+	<!-- rules to map from logger name to target -->
+	<rules>
+		<!--All logs, including from Microsoft-->
+		<!-- <logger name="*" minlevel="Trace" writeTo="alllog" /> -->
+		<logger name="*" minlevel="Error" writeTo="logstash"/>
+	</rules>
+</nlog>

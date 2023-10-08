@@ -1,0 +1,9 @@
+{
+  "RedisCache": {
+    "Configuration": "192.168.11.228:30152",
+    //"InstanceName": "amis-ams-redis",
+    "DefaultCacheTimeHours": "24",
+    //"InstanceNameFormat": "$env-$version"
+    "InstanceNameFormat": ""
+  }
+}

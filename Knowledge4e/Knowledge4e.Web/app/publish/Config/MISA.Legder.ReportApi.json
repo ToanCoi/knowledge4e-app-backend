@@ -1,0 +1,8 @@
+{
+  "Swagger": {
+    "JsonPath": "/swagger/v1/swagger.json"
+  },
+  "ElasticApm": {
+    "ServiceName": "legder-report-api"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "Cache": {
+    "DistGroups": [ "Default", "Auth", "Big" ],
+    "DistType": "Redis",
+    "Redis": {
+      "Default": {
+        "Configuration": "192.168.11.228:30152",
+        "InstanceName": "legder_default_"
+      },
+      "Auth": {
+        "Configuration": "192.168.41.142:6379",
+        "InstanceName": "legder_auth_"
+      },
+      "Big": {
+        "Configuration": "192.168.11.228:30152",
+        "InstanceName": "legder_big_"
+      }
+    },
+    "Items": {
+      /*
+			Danh sách các loại cache sử dụng trong ứng dụng
+      Key: Định dạng key cache, hỗ trợ các tham số
+              {dbid} - databaseId
+              {tid} - tenantId
+              {uid} - userId
+              {sid} - sessionId
+              {guid} - Giá trị Guid.ToString("N"), nếu không truyền trong tham số hàm thì lấy bằng Guid.NewGuid
+              {custom} - Giá trị custom truyền vào từ tham số
+      DistSeconds, MemSeconds: Thời gian timeout (đơn vị là giây). Nếu có khai báo thì sẽ set/get tương ứng và khi lấy ra sẽ ưu tiên đọc mem trước
+                              Việc ghi vào mem sẽ chỉ làm trong hàm get, khi đọc từ mem không có, dist có thì sẽ đẩy vào mem tại thời điểm đó -> tối ưu lưu trữ (Cần thiết mới lưu)
+                              Tình huống chỉ có MemSeconds thì set/get chỉ thao tác với mem
+      DistGroup: Tên chỉ định lưu ở dist cache nào, chỗ này sẽ phân tách ra 1 số vùng cache riêng để không ảnh hường. VD phiên đăng nhập (auth), dữ liệu lớn (Big), dữ liệu nhỏ (Default)...
+                Nếu không khai báo thì sẽ mặc định vào nhóm Default
+		  */
+
+      "ContextData": {
+        "Key": "context_{sid}",
+        "DistSeconds": 14400, //4h
+        "MemSeconds": 180, //3p
+        "DistGroup": "Auth",
+        "Note": "Thông tin phiên đăng nhập. Được khởi tạo tại AuthApi"
+      },
+      "DatabaseConnection": {
+        "Key": "conn_{dbid}",
+        "MemSeconds": 14400, //4h
+        "Note": "Chuỗi kết nối vào dữ liệu"
+      },
+      "CdnIndex": {
+        "Key": "index_{custom}",
+        "MemSeconds": 14400, //4h
+        "Note": "Nội dung html trả về client. Dùng cho App service"
+      },
+      "VersionMaping": {
+        "Key": "vsmap_{custom}",
+        "MemSeconds": 3600, //1h
+        "Note": "Thông tin router để điều hướng theo phiên bản của request"
+      },
+      "FileSystemStringContent": {
+        "Key": "fsstring_{custom}",
+        "MemSeconds": 3600, //1h
+        "Note": "Nội dung string của file mang đi, các file này thường sẽ theo từng bản build"
+      },
+      "ExportParam": {
+        "Key": "exportParam_{custom}",
+        "DistSeconds": 300, //5p
+        "Note": "Tham số xuất khẩu thực hiện ngay. Với nhưng lần xuất khẩu có số lượng bản ghi lớn sẽ đẩy vào luồng async luôn - không qua đây"
+      }
+    }
+  }
+}

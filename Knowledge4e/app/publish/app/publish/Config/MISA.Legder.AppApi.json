@@ -1,0 +1,40 @@
+{
+  "Swagger": {
+    "JsonPath": "/swagger/v1/swagger.json"
+  },
+  "ElasticApm": {
+    "ServiceName": "legder-app-api"
+  },
+  "LoginUrl": "http://localhost:8082/login",
+  "App": {
+    "ProcessFiles": [
+      "cfg/config.js",
+      "js/decimal.min.js",
+      "js/math.js"
+    ],
+    "ProcessLinkVersion": "dc=1",
+    "CdnSites": {
+      "g1": {
+        "ReplaceFrom": "/legder/",
+        "Domain": "http://localhost:9001/",
+        "IndexUrl": "http://localhost:9001/index.html",
+        "Headers": null
+      },
+      "g2": {
+        "ReplaceFrom": "/ams/",
+        "Domain": "https://amisamscdn.misa.local/",
+        "IndexUrl": "https://amisamscdn.misa.local/index.html",
+        "Headers": null
+      }
+    },
+    "DefaultCdn": "g1",
+    "ResponseHeaders": {
+      "X-Frame-Options": "SAMEORIGIN"
+    },
+    "CacheIndexContentSeconds": 144000,
+    "FixEnvUrls": {
+      "/login": "g2",
+      "/register": "g1"
+    }
+  }
+}

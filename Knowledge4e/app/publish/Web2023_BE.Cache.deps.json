@@ -1,0 +1,24 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "Web2023_BE.Cache/1.0.0": {
+        "runtime": {
+          "Web2023_BE.Cache.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Web2023_BE.Cache/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning",
+      //"Elastic.Apm": "Warning"
+    }
+  },
+  "Env": "Dev",
+  "Cors": [
+    "http://localhost:7749"
+  ],
+  "InternalApi": {
+    "App": "http://localhost:8084",
+    "Business": "http://localhost:8081",
+    "Export": "http://localhost:8084",
+    "Integration": "http://localhost:8085",
+    "Proxy": "http://localhost:8083"
+  }
+}

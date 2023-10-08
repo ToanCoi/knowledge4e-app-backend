@@ -1,0 +1,26 @@
+{
+  "Storage": {
+    "UploadAllowExtensions": "ppt,pptx,doc,docx,xls,xlsx,pdf,txt,zip,rar,png,jpg,gif,bmp,tiff,svg,xml,xmind,inv,ods,odt,rtf,heic,jpeg",
+    "UploadMaxSizeMB": 5,
+    "Type": "File",
+    "File": {
+      "Real": "",
+      "Temp": "Temp"
+    },
+    "MinIo": {
+      "Real": {
+        "ServiceURL": "http://teststorage.misa.local:443",
+        "AccessKey": "BU7V542M5WPYW91JROEL",
+        "SecretKey": "u7NaLM6OSnwjFNNoeP57DrDn8LoIqOP4BlBcsu7C",
+        "BucketName": "legder-dev"
+      },
+      "Temp": {
+        "ServiceURL": "http://teststorage.misa.local:443",
+        "AccessKey": "BU7V542M5WPYW91JROEL",
+        "SecretKey": "u7NaLM6OSnwjFNNoeP57DrDn8LoIqOP4BlBcsu7C",
+        "BucketName": "temp",
+        "Format": "legder-dev/{0}"
+      }
+    }
+  }
+}

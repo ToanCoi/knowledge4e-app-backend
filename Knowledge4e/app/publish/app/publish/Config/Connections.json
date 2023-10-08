@@ -1,0 +1,5 @@
+{
+  "Connections": {
+    "Master": "Server=192.168.11.169;Database=amisnew_management;Uid=amisnew;Pwd=12345678@Abc"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "Router": {
+    "MapingKeyOrder": [ "TenantCode", "TenantID" ],
+    "MapingKey": {
+      "TenantCode": [
+        "tenantcode",
+        "tcode"
+      ],
+      "TenantID": [
+        "tid"
+      ]
+    },
+    "DefaultEnv": "g1",
+    "VersionMapping": {
+      "2.0.0.1": "g2"
+    },
+    "ApiUrl": {
+      "g1": {
+        "Integration": "http://localhost:9697",
+        "Business": "http://localhost:2535",
+        "Export": "http://localhost:9690",
+        "Proxy": "http://localhost:9696"
+      },
+      "g2": {
+        "Integration": "http://localhost:9697",
+        "Business": "http://localhost:2535",
+        "Export": "http://localhost:9690",
+        "Proxy": "http://localhost:9696"
+      }
+    }
+  }
+}

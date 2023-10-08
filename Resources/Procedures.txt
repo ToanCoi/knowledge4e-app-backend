@@ -1,0 +1,43 @@
+--post
+++delete
+CREATE PROCEDURE library.Proc_post_delete_by_id(IN v_id CHAR(36))
+  SQL SECURITY INVOKER
+BEGIN
+  DELETE  FROM post WHERE id = v_id AND is_deleted = FALSE;
+END
+++get_by_id
+CREATE PROCEDURE library.Proc_post_get_by_id(IN v_id CHAR(36))
+  SQL SECURITY INVOKER
+BEGIN
+  SELECT * FROM post WHERE id = v_id AND is_deleted = FALSE;
+END
+++insert
+CREATE PROCEDURE library.Proc_post_insert(IN v_id CHAR(36), IN v_title VARCHAR(255), IN v_slug VARCHAR(255), IN v_description TEXT, IN v_image TEXT, IN v_view_count INT, IN v_type INT, IN v_created_date TIMESTAMP, IN v_created_by VARCHAR(255), IN v_modified_date TIMESTAMP, IN v_modified_by VARCHAR(255), IN v_status BIT, IN v_is_deleted BIT)
+  SQL SECURITY INVOKER
+BEGIN
+ INSERT INTO post (id, title, slug, description, image, view_count, type, created_date, created_by, modified_date, modified_by, status, is_deleted)
+   VALUES (v_id, v_title, v_slug, v_description, v_image, v_view_count, v_type, v_created_date, v_created_by, v_modified_date, v_modified_by, b'1', b'0');
+END
+++update
+CREATE PROCEDURE library.Proc_post_update(IN v_id CHAR(36), IN v_title VARCHAR(255), IN v_slug VARCHAR(255), IN v_description TEXT, IN v_image TEXT, IN v_view_count INT, IN v_type INT, IN v_created_date TIMESTAMP, IN v_created_by VARCHAR(255), IN v_modified_date TIMESTAMP, IN v_modified_by VARCHAR(255), IN v_status BIT, IN v_is_deleted BIT)
+  SQL SECURITY INVOKER
+BEGIN
+ UPDATE post
+ SET title = v_title,
+     slug = v_slug,
+     description = v_description,
+     image = v_image,
+     view_count = v_view_count,
+     type = v_type,
+     modified_date = v_modified_date,
+     modified_by = v_modified_by,
+     status = v_status,
+     is_deleted = v_is_deleted
+ WHERE id = v_i and is_deleted = b'0';
+END
+++filter
+CREATE PROCEDURE library.Proc_post_get_filter_paging(IN v_filter VARCHAR(255), IN v_limit INT, IN v_offset INT)
+  SQL SECURITY INVOKER
+BEGIN
+  SELECT * FROM post WHERE is_deleted = FALSE and (title LIKE '%'+v_filter+'%' OR slug LIKE '%'+v_filter+'%') limit v_limit OFFSET v_offset;
+END

@@ -1,0 +1,8 @@
+{
+  "JwtToken": {
+    "Issuer": "MISAJSC",
+    "SecretKey": "LJDFOISD)DSKF)*DSDF",
+    "ExpiredMinutes": "240",
+    "MemoryCacheSeconds": "60"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "ElasticApm": {
+    "Enabled": true,
+    "ServerUrls": "http://192.168.11.163:8200",
+    "TransactionSampleRate": 0.5,
+    "CaptureHeaders": false,
+    "StackTraceLimit": 0,
+    "Environment": "Dev",
+    "LogLevel": "Warning"
+  }
+}
