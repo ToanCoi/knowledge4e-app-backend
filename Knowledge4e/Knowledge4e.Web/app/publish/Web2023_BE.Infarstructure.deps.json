@@ -11,7 +11,7 @@
           "Dapper": "2.0.90",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "MySqlConnector": "1.4.0-beta.1",
-          "Knowledge4e.ApplicationCore": "1.0.0"
+          "Knowledge4e.Core": "1.0.0"
         },
         "runtime": {
           "Knowledge4e.Infarstructure.dll": {}
@@ -1252,7 +1252,7 @@
           }
         }
       },
-      "Knowledge4e.ApplicationCore/1.0.0": {
+      "Knowledge4e.Core/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.95.4",
           "EPPlus": "5.7.1",
@@ -1271,7 +1271,7 @@
           "Knowledge4e.Cache": "1.0.0"
         },
         "runtime": {
-          "Knowledge4e.ApplicationCore.dll": {}
+          "Knowledge4e.Core.dll": {}
         }
       },
       "Knowledge4e.Cache/1.0.0": {
@@ -2246,7 +2246,7 @@
       "path": "tinymapper/3.0.3",
       "hashPath": "tinymapper.3.0.3.nupkg.sha512"
     },
-    "Knowledge4e.ApplicationCore/1.0.0": {
+    "Knowledge4e.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

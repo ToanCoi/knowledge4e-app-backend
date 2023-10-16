@@ -14,7 +14,7 @@ namespace Knowledge4e.Web
             {
                 CreateHostBuilder(args).Build().Run();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

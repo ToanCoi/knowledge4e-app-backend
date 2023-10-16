@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Knowledge4e.Core.Entities;
+using Knowledge4e.Core.Enums;
+using Knowledge4e.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,9 +9,6 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
-using Knowledge4e.ApplicationCore.Entities;
-using Knowledge4e.ApplicationCore.Interfaces;
-using Knowledge4e.Entities;
 
 namespace Knowledge4e.Web.Controllers
 {
@@ -81,7 +81,7 @@ namespace Knowledge4e.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
-            var entity = await _baseService.GetEntityById(Guid.Parse(id));
+            var entity = await _baseService.GetEntityById(int.Parse(id));
 
             if (entity == null)
                 return NotFound();
@@ -96,7 +96,7 @@ namespace Knowledge4e.Web.Controllers
         /// <returns>Sô bản ghi bị ảnh hưởng</returns>
         [EnableCors("AllowCROSPolicy")]
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Post([FromBody] TEntity entity)
         {
             var serviceResult = new ServiceResult();
@@ -120,8 +120,8 @@ namespace Knowledge4e.Web.Controllers
 
         [EnableCors("AllowCROSPolicy")]
         [HttpPut("PatchUpdate/{id}")]
-        [Authorize]
-        public async Task<IActionResult> Patch(Guid id, [FromBody] object model)
+        //[Authorize]
+        public async Task<IActionResult> Patch(int id, [FromBody] object model)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Knowledge4e.Web.Controllers
                     else if (serviceResult.Code == Enums.Exception)
                         return StatusCode(500, serviceResult);
 
-                    return Ok(serviceResult.Data);
+                    return Ok(serviceResult);
                 }
                 else
                 {
@@ -156,14 +156,14 @@ namespace Knowledge4e.Web.Controllers
         /// <returns>Số bản ghi bị ảnh hưởng</returns>
         [EnableCors("AllowCROSPolicy")]
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> Put([FromRoute] string id, [FromBody] TEntity entity)
         {
             try
             {
                 _logger.LogInformation($"Body put {typeof(TEntity).Name}:" + JsonConvert.SerializeObject(entity));
                 //Sử lí kiểu id động ở đây
-                var serviceResult = await _baseService.Update(Guid.Parse(id), entity);
+                var serviceResult = await _baseService.Update(int.Parse(id), entity);
                 _logger.LogInformation($"ServiceResult Body put {typeof(TEntity).Name}:" + JsonConvert.SerializeObject(serviceResult));
 
                 if (serviceResult.Code == Enums.InValid)
@@ -190,10 +190,10 @@ namespace Knowledge4e.Web.Controllers
         /// <returns>Số bản ghi bị ảnh hưởng</returns>
         [EnableCors("AllowCROSPolicy")]
         [HttpDelete("{id}")]
-        [Authorize]
-        public IActionResult Delete(string id)
+        //[Authorize]
+        public async Task<IActionResult> Delete(string id)
         {
-            var serviceResult = _baseService.Delete(Guid.Parse(id));
+            var serviceResult = await _baseService.Delete(int.Parse(id));
             if (serviceResult.Code == Enums.Success)
                 return Ok(serviceResult);
             else

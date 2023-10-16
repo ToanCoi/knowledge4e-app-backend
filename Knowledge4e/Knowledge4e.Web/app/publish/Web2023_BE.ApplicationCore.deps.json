@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Knowledge4e.ApplicationCore/1.0.0": {
+      "Knowledge4e.Core/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.95.4",
           "EPPlus": "5.7.1",
@@ -25,7 +25,7 @@
           "Knowledge4e.Cache": "1.0.0"
         },
         "runtime": {
-          "Knowledge4e.ApplicationCore.dll": {}
+          "Knowledge4e.Core.dll": {}
         }
       },
       "ClosedXML/0.95.4": {
@@ -1250,7 +1250,7 @@
     }
   },
   "libraries": {
-    "Knowledge4e.ApplicationCore/1.0.0": {
+    "Knowledge4e.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

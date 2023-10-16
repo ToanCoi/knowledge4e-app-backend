@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Knowledge4e.Core\Knowledge4e.Core.csproj" />
+    <ProjectReference Include="..\Knowledge4e.Entities\Knowledge4e.Entities.csproj" />
+    <ProjectReference Include="..\Knowledge4e.Infarstructure\Knowledge4e.Infarstructure.csproj" />
+  </ItemGroup>
+
+</Project>

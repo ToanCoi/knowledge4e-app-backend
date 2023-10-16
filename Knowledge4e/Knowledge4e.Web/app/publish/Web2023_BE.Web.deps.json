@@ -13,7 +13,7 @@
           "NLog": "4.7.15",
           "NLog.Web.AspNetCore": "4.14.0",
           "System.Runtime.Caching": "6.0.0",
-          "Knowledge4e.ApplicationCore": "1.0.0",
+          "Knowledge4e.Core": "1.0.0",
           "Knowledge4e.HostBase": "1.0.0",
           "Knowledge4e.Infarstructure": "1.0.0"
         },
@@ -1682,7 +1682,7 @@
           }
         }
       },
-      "Knowledge4e.ApplicationCore/1.0.0": {
+      "Knowledge4e.Core/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.95.4",
           "EPPlus": "5.7.1",
@@ -1701,7 +1701,7 @@
           "Knowledge4e.Cache": "1.0.0"
         },
         "runtime": {
-          "Knowledge4e.ApplicationCore.dll": {}
+          "Knowledge4e.Core.dll": {}
         }
       },
       "Knowledge4e.Cache/1.0.0": {
@@ -1746,7 +1746,7 @@
           "Microsoft.Extensions.Caching.StackExchangeRedis": "6.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "7.0.0",
-          "Knowledge4e.ApplicationCore": "1.0.0",
+          "Knowledge4e.Core": "1.0.0",
           "Knowledge4e.Cache.Redis": "1.0.0",
           "Knowledge4e.Domain.Shared": "1.0.0",
           "Knowledge4e.Extension": "1.0.0"
@@ -1760,7 +1760,7 @@
           "Dapper": "2.0.90",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "MySqlConnector": "1.4.0-beta.1",
-          "Knowledge4e.ApplicationCore": "1.0.0"
+          "Knowledge4e.Core": "1.0.0"
         },
         "runtime": {
           "Knowledge4e.Infarstructure.dll": {}
@@ -2957,7 +2957,7 @@
       "path": "tinymapper/3.0.3",
       "hashPath": "tinymapper.3.0.3.nupkg.sha512"
     },
-    "Knowledge4e.ApplicationCore/1.0.0": {
+    "Knowledge4e.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

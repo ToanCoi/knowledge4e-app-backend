@@ -11,7 +11,7 @@
           "Microsoft.Extensions.Caching.StackExchangeRedis": "6.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "7.0.0",
-          "Knowledge4e.ApplicationCore": "1.0.0",
+          "Knowledge4e.Core": "1.0.0",
           "Knowledge4e.Cache.Redis": "1.0.0",
           "Knowledge4e.Domain.Shared": "1.0.0",
           "Knowledge4e.Extension": "1.0.0"
@@ -1592,7 +1592,7 @@
           }
         }
       },
-      "Knowledge4e.ApplicationCore/1.0.0": {
+      "Knowledge4e.Core/1.0.0": {
         "dependencies": {
           "ClosedXML": "0.95.4",
           "EPPlus": "5.7.1",
@@ -1611,7 +1611,7 @@
           "Knowledge4e.Cache": "1.0.0"
         },
         "runtime": {
-          "Knowledge4e.ApplicationCore.dll": {}
+          "Knowledge4e.Core.dll": {}
         }
       },
       "Knowledge4e.Cache/1.0.0": {
@@ -2800,7 +2800,7 @@
       "path": "tinymapper/3.0.3",
       "hashPath": "tinymapper.3.0.3.nupkg.sha512"
     },
-    "Knowledge4e.ApplicationCore/1.0.0": {
+    "Knowledge4e.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

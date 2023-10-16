@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Knowledge4e.Core.Services;
+using Knowledge4e.Core.Services.BaseService;
+using Knowledge4e.Infarstructure.Repositories;
+using Knowledge4e.Infarstructure.Repositories.BaseRepository;
+using Knowledge4e.Web.Extensions;
+using Knowledge4e.Web.MiddleWare;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Knowledge4e.ApplicationCore.Interfaces;
-using Knowledge4e.ApplicationCore.MiddleWare;
 
-namespace Knowledge4e.ApplicationCore.Extensions
+namespace Knowledge4e.Web.Extensions
 {
-    public static class StartupExtensions 
+    public static class StartupExtensions
     {
         public static void UseMiddlewares(this IApplicationBuilder app)
         {
@@ -31,6 +35,9 @@ namespace Knowledge4e.ApplicationCore.Extensions
             //base
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+            //account
+            services.AddScoped(typeof(IAccountService), typeof(AccountService));
+            services.AddScoped(typeof(IAccountRepository), typeof(AccountRepository));
         }
     }
 }

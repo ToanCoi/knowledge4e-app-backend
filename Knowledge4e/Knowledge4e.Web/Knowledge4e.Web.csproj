@@ -36,8 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Knowledge4e.ApplicationCore\Knowledge4e.ApplicationCore.csproj" />
-    <ProjectReference Include="..\Knowledge4e.Infarstructure\Knowledge4e.Infarstructure.csproj" />
+    <ProjectReference Include="..\Knowledge4e.Services\Knowledge4e.Services.csproj" />
   </ItemGroup>
 
 </Project>

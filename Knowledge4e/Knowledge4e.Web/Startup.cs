@@ -1,3 +1,5 @@
+using Knowledge4e.Core.Extensions;
+using Knowledge4e.Web.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
-using Knowledge4e.ApplicationCore.Extensions;
 
 namespace Knowledge4e.Web
 {
