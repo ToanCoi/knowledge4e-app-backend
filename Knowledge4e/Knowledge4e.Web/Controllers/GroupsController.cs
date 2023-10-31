@@ -1,5 +1,6 @@
-﻿using Knowledge4e.Core.Entities.Account;
+﻿using Knowledge4e.Core.Entities;
 using Knowledge4e.Core.Services.BaseService;
+using Knowledge4e.Entities.Entities.Group;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -7,22 +8,22 @@ using Microsoft.Extensions.Logging;
 namespace Knowledge4e.Web.Controllers
 {
     /// <summary>
-    /// Controller account
+    /// Controller group
     /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class AccountsController : BaseEntityController<Account>
+    public class GroupsController : BaseEntityController<KGroup>
     {
         #region Declare
-        ILogger<Account> _logger;
-        IAccountService _accountService;
+        ILogger<KGroup> _logger;
+        IGroupService _groupService;
         #endregion
 
         #region Constructer
-        public AccountsController(ILogger<Account> logger, IAccountService accountService) : base(accountService, logger)
+        public GroupsController(ILogger<KGroup> logger, IGroupService accountService) : base(accountService, logger)
         {
             _logger = logger;
-            _accountService = accountService;
+            _groupService = accountService;
         }
         #endregion
 

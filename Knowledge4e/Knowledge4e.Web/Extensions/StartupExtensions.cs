@@ -35,9 +35,14 @@ namespace Knowledge4e.Web.Extensions
             //base
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+          
             //account
             services.AddScoped(typeof(IAccountService), typeof(AccountService));
             services.AddScoped(typeof(IAccountRepository), typeof(AccountRepository));
+
+            //group
+            services.AddScoped(typeof(IGroupService), typeof(GroupService));
+            services.AddScoped(typeof(IGroupRepository), typeof(GroupRepository));
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Knowledge4e.Web
                        .AllowAnyHeader()
                        .AllowAnyMethod()
                        .AllowCredentials()
-                       .WithOrigins("http://localhost:3000"));
+                       .WithOrigins("http://localhost:5173"));
 
             app.UseAuthentication();
             app.UseAuthorization();
